@@ -8,6 +8,7 @@ public interface ArrayService {
 	public StudentRecord[] fillStudentArray();
 	public StudentRecord[] readStudentArray();
 	public StudentRecord[] splitStudentArray();
+	public StudentRecord[] orderArray();
 	
 	
 }

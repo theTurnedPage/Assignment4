@@ -12,17 +12,18 @@ public class FileServiceImpl implements FileService{
 	@Override
 	public String readLine(File file) throws IOException {
 
-		BufferedReader reader = null;		
+		BufferedReader reader = null;								
 		
-		try {
-			System.out.println("reading."); //feedback
-			reader = new BufferedReader(new FileReader(file));
+		try {			
+			System.out.println("reading from file."); //feedback
+			reader = new BufferedReader(new FileReader(file));			
+			
 			return reader.readLine();				
 		} finally {
 			if (reader != null) reader.close(); 	
-			System.out.println("read complete.");//feedback
+			System.out.println("file read complete.");//feedback
 		}
-		
+
 	}
 	
 	//this method will receive the file and String to write into file
@@ -32,12 +33,12 @@ public class FileServiceImpl implements FileService{
 		BufferedWriter writer = null;
 		
 		try {
-			System.out.println("writing.");
+			System.out.println("writing to file.");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(line); //take input "line" and write it to the file
 		}finally {
 			if (writer == null) writer.close();
-			System.out.println("write complete.");
+			System.out.println("file write complete.");
 		}
 		
 	}

@@ -22,9 +22,13 @@ public class EnrollmentApplication {
 	
 	public static void appStart() throws IOException {
 		//read file
-		FileServiceImpl file = new FileServiceImpl();
+		FileServiceImpl file = new FileServiceImpl();		
 		file.readLine(new File(file.standardFileName));
-		System.out.println("appStart read output: " + file.toString());
+		System.out.println("appStart file output: " + file.toString());
+		
+		ArrayServiceImpl array = new ArrayServiceImpl();
+		array.fillStudentArray();
+		System.out.println("appStart array output: " + array.toString());
 		
 		
 		
