@@ -10,15 +10,26 @@ import java.io.IOException;
 public class FileServiceImpl implements FileService{
 
 	@Override
-	public String readLine(File file) throws IOException {
+	public String[] readLine(File file) throws IOException {
 
-		BufferedReader reader = null;								
-		
-		try {			
-			System.out.println("reading from file."); //feedback
-			reader = new BufferedReader(new FileReader(file));			
+		BufferedReader reader = null; 
+		int i = 0;
 			
-			return reader.readLine();				
+		String aLine = "";
+		String[] stringArray = new String[101];
+		
+		
+		try {
+			reader = new BufferedReader(new FileReader(FileServiceImpl.standardFile));
+			System.out.println("reading from file."); //feedback
+			
+			while((aLine = reader.readLine()) != null) {	
+												
+			stringArray[i] = aLine;					
+			System.out.println("Inside READLINE method: record at: " + i + ": " + stringArray[i] + "\n");
+			i++;
+			}
+			return stringArray;				
 		} finally {
 			if (reader != null) reader.close(); 	
 			System.out.println("file read complete.");//feedback
@@ -42,7 +53,7 @@ public class FileServiceImpl implements FileService{
 		}
 		
 	}
-	
+	/*
 	public void writeLine2() throws IOException{
 		BufferedWriter writer = null;
 		
@@ -61,6 +72,6 @@ public class FileServiceImpl implements FileService{
 		} finally {
 			if (reader != null) reader.close();
 		}
-	}
+	}*/
 
 }

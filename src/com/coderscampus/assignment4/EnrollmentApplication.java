@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class EnrollmentApplication {
 
@@ -23,12 +24,31 @@ public class EnrollmentApplication {
 	public static void appStart() throws IOException {
 		//read file
 		FileServiceImpl file = new FileServiceImpl();		
-		file.readLine(new File(file.standardFileName));
+		file.readLine((FileService.standardFile));
 		System.out.println("appStart file output: " + file.toString());
 		
 		ArrayServiceImpl array = new ArrayServiceImpl();
 		array.fillStudentArray();
-		System.out.println("appStart array output: " + array.toString());
+		array.splitStudentArray();
+		
+		//for (int i = 0; i < 101; i++) {
+			//System.out.println("appStart studentArray output: " + array.studentArray[i]);
+			//34 COMPSCI //33 STAT  //33 APMTH											
+		//}
+		
+		for (int i = 0; i < array.apmthArray.length; i++) {
+			System.out.println("apmthArray at : " + i + "\n" + array.apmthArray[i]);
+			System.out.println("statArray at : " + i + "\n" + array.statArray[i]);			
+		}
+		for (int i = 0; i < array.compsciArray.length; i++) {
+			System.out.println("compsciArray at : " + i + "\n" + array.compsciArray[i]);
+		}
+	
+		
+
+		
+		
+		
 		
 		
 		
