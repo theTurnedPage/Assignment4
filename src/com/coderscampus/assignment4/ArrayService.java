@@ -5,10 +5,10 @@ import java.io.IOException;
 
 public interface ArrayService {
 
-	public StudentRecord[] fillStudentArray();
-	public StudentRecord[] readStudentArray();
+	public String[] fillStudentArray();
+	public String readStudentArray(String[] someArray);
 	public void splitStudentArray();
-	public StudentRecord[] orderArray();
+	public String[] orderArray();
 	
 	
 }

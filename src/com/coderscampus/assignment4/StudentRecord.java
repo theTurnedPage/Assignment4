@@ -1,7 +1,7 @@
 package com.coderscampus.assignment4;
 
-public class StudentRecord {
-	
+public class StudentRecord implements Comparable<StudentRecord>{
+	//This class isn't really used yet until I figure out processing the arrays
 	private String studentName;
 	private String studentId;
 	private String studentCourse;
@@ -41,9 +41,16 @@ public class StudentRecord {
 	public void setStudentGrade(Integer studentGrade) {
 		this.studentGrade = studentGrade;
 	}
-	
-	
-	
-	
 
+	@Override
+	public int compareTo(StudentRecord that) {
+
+		if(this.studentGrade.compareTo(that.studentGrade) == 0) {
+			return that.studentName.compareTo(this.studentName);
+		} else
+		{//this to that is ascending order
+			//that to this is descending order
+			return that.studentGrade.compareTo(this.studentGrade);							
+		}				
+	}	
 }

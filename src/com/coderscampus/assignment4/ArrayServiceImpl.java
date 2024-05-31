@@ -3,6 +3,7 @@ package com.coderscampus.assignment4;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayServiceImpl implements ArrayService{
 	
@@ -14,7 +15,7 @@ public class ArrayServiceImpl implements ArrayService{
 	public String[] apmthArray = new String[34];
 
 	@Override
-	public StudentRecord[] fillStudentArray() {
+	public String[] fillStudentArray() {
 
 		String aLine = "";
 		String[] stringArray = new String[100]; //101 records in csv file
@@ -49,17 +50,25 @@ public class ArrayServiceImpl implements ArrayService{
 	}
 
 	@Override
-	public StudentRecord[] readStudentArray() {
-		//final method to call all 3 arrays and display them.
-		return null;
+	public String readStudentArray(String[] someArray) {
+		//final method to call all 3  and display them.
+		String[] array = someArray;
+		String concatString = "";
+		
+		for (int i = 0; i < array.length; i++) {
+			concatString += someArray[i];
+			concatString += " \n ";
+		}					
+		
+		return concatString;
 	}
 
 	@Override
 	public void splitStudentArray() {
 		//34 COMPSCI //33 STAT  //33 APMTH
 		int i = 0;		
-		int j = 1;//start at index 1 to avoid overwriting the header
 		int k = 0; 	
+		int j = 1;//start at index 1 to avoid overwriting the header assigned to index 0		
 		int l = 1;
 		int m = 1;
 		String copyString = "";
@@ -76,7 +85,7 @@ public class ArrayServiceImpl implements ArrayService{
 				
 				if (j < 34 && k <= i) {
 					apmthArray[j] = copyString;
-					j++; //counter for when we get to array's length
+					j++; //counter for when we get to the split array's length
 					k++; //counter for when we find contains is true
 				}								
 			}
@@ -86,7 +95,7 @@ public class ArrayServiceImpl implements ArrayService{
 				
 				if (l < 34 && k <= i) {
 					statArray[l] = copyString;
-					l++; //counter for when we get to array's length
+					l++; //counter for when we get to the split array's length
 					k++; //counter for when we find contains is true
 				}										
 			}
@@ -96,7 +105,7 @@ public class ArrayServiceImpl implements ArrayService{
 				
 				if (m < 35 && k <= i) {
 					compsciArray[m] = copyString;
-					m++; //counter for when we get to array's length
+					m++; //counter for when we get to the split array's length
 					k++; //counter for when we find contains is true
 				}		
 			}		
@@ -111,8 +120,15 @@ public class ArrayServiceImpl implements ArrayService{
 	}	
 
 	@Override
-	public StudentRecord[] orderArray() {
-		// TODO Auto-generated method stub
+	public String[] orderArray() {		
+		
+		
+		
+		StudentRecord theRecords = new StudentRecord(null, null, null, null);
+		
+		
+
+		
 		return null;
 	}
 

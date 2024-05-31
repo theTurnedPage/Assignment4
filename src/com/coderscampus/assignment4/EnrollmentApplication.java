@@ -16,16 +16,13 @@ public class EnrollmentApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-
+				
 	}
 	
 	public static void appStart() throws IOException {
 		//read file
 		FileServiceImpl file = new FileServiceImpl();		
-		file.readLine((FileService.standardFile));
-		System.out.println("appStart file output: " + file.toString());
+		file.readLine((FileService.standardFile));		
 		
 		ArrayServiceImpl array = new ArrayServiceImpl();
 		array.fillStudentArray();
@@ -36,13 +33,24 @@ public class EnrollmentApplication {
 			//34 COMPSCI //33 STAT  //33 APMTH											
 		//}
 		
-		for (int i = 0; i < array.apmthArray.length; i++) {
-			System.out.println("apmthArray at : " + i + "\n" + array.apmthArray[i]);
-			System.out.println("statArray at : " + i + "\n" + array.statArray[i]);			
-		}
+		//for (int i = 0; i < array.apmthArray.length; i++) {
+			//System.out.println("apmthArray at : " + i + "\n" + array.apmthArray[i]);
+//			System.out.println("statArray at : " + i + "\n" + array.statArray[i]);			
+		//}
+		//for (int i = 0; i < array.compsciArray.length; i++) {
+//			System.out.println("compsciArray at : " + i + "\n" + array.compsciArray[i]);
+		//}
+		
+		System.out.println(array.readStudentArray(array.statArray));
+		
 		for (int i = 0; i < array.compsciArray.length; i++) {
-			System.out.println("compsciArray at : " + i + "\n" + array.compsciArray[i]);
+			
+			file.createCsv(array.compsciArray, file.compsciFile.toString());
+			file.createCsv(array.apmthArray, file.apmthFile.toString());
+			file.createCsv(array.statArray, file.statFile.toString());
 		}
+		
+		
 	
 		
 
@@ -53,16 +61,14 @@ public class EnrollmentApplication {
 		
 		
 		
-		//populate array
+		//populate array -done
 		//StudentRecord enrollRecord = new StudentRecord(null, null, null, null);
 		
-		//trim the first record, since the header is not important
-		//or keep the header, and work starting at index 1, then
-		//hardcode the header into index 0
+		//trim the first record, since the header is not important 
+		//or keep the header, and work starting at index 1, then -done
+		//hardcode the header into index 0 -done					
 		
-		//sort the arrays by Course
-		
-		//split into 3 arrays by Course
+		//split into 3 arrays by Course -done
 		
 		//sort each array descending order by Course Grade
 		

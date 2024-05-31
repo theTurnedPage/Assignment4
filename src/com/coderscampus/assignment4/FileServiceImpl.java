@@ -25,9 +25,9 @@ public class FileServiceImpl implements FileService{
 			
 			while((aLine = reader.readLine()) != null) {	
 												
-			stringArray[i] = aLine;					
-			System.out.println("Inside READLINE method: record at: " + i + ": " + stringArray[i] + "\n");
-			i++;
+				stringArray[i] = aLine;					
+				//System.out.println("Inside READLINE method: record at: " + i + ": " + stringArray[i] + "\n");
+				i++;
 			}
 			return stringArray;				
 		} finally {
@@ -37,41 +37,19 @@ public class FileServiceImpl implements FileService{
 
 	}
 	
-	//this method will receive the file and String to write into file
 	@Override
-	public void writeLine(File file, String line) throws IOException {
-		
-		BufferedWriter writer = null;
-		
-		try {
-			System.out.println("writing to file.");
-			writer = new BufferedWriter(new FileWriter(file));
-			writer.write(line); //take input "line" and write it to the file
-		}finally {
-			if (writer == null) writer.close();
-			System.out.println("file write complete.");
-		}
-		
-	}
-	/*
-	public void writeLine2() throws IOException{
-		BufferedWriter writer = null;
-		
-		try {
-			writer = new BufferedWriter(new FileWriter("data.txt"));
-			writer.write("This is a test string that will be output into a file.\n");
-			writer.write("Is this line of text on a new line?");			
-		} finally {
-			if (writer != null) writer.close();
-		}
-		
-		BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader("data.txt"));
-			System.out.println(reader.readLine());
-		} finally {
-			if (reader != null) reader.close();
-		}
-	}*/
+    public void createCsv(String[] someArray, String filePath) throws IOException {
+        
+		try (FileWriter writer = new FileWriter(filePath)) {
+			
+            for (int i = 0; i < someArray.length; i++) {
+                writer.append(String.valueOf(someArray[i]));
+                
+                if (i < someArray.length - 1) {
+                    writer.append("\n"); // Add a comma between elements
+                }
+            }
+        }
+    }
 
 }
