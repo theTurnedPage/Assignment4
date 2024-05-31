@@ -1,7 +1,5 @@
 package com.coderscampus.assignment4;
 
-import java.io.File;
-import java.io.IOException;
 
 public interface ArrayService {
 

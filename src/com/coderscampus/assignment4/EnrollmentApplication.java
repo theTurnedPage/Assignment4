@@ -1,10 +1,6 @@
 package com.coderscampus.assignment4;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class EnrollmentApplication {
 
@@ -51,31 +47,21 @@ public class EnrollmentApplication {
 			array.orderArray(array.compsciArray);
 			array.orderArray(array.apmthArray);
 			array.orderArray(array.statArray);
-		}
-		
-		
-	
-		
-
-		
-		
-		
-		
-		
-		
-		
+		}	
+			
+						
 		//populate array -done
 		//StudentRecord enrollRecord = new StudentRecord(null, null, null, null);
 		
-		//trim the first record, since the header is not important 
+		//trim the first record, since the header is not important -nope nvm
 		//or keep the header, and work starting at index 1, then -done
 		//hardcode the header into index 0 -done					
 		
 		//split into 3 arrays by Course -done
 		
-		//sort each array descending order by Course Grade
+		//sort each array descending order by Course Grade -done
 		
-		//copy each array into 3 separate files		
+		//copy each array into 3 separate files	 -done	
 		//file.writeLine(new File(file.standardFileName), "test");
 		
 		

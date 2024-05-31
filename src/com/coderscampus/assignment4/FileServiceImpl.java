@@ -1,7 +1,6 @@
 package com.coderscampus.assignment4;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,8 +15,7 @@ public class FileServiceImpl implements FileService{
 		int i = 0;
 			
 		String aLine = "";
-		String[] stringArray = new String[101];
-		
+		String[] stringArray = new String[101];		
 		
 		try {
 			reader = new BufferedReader(new FileReader(FileServiceImpl.standardFile));
@@ -46,7 +44,7 @@ public class FileServiceImpl implements FileService{
                 writer.append(String.valueOf(someArray[i]));
                 
                 if (i < someArray.length - 1) {
-                    writer.append("\n"); // Add a comma between elements
+                    writer.append("\n"); //add a line break
                 }
             }
         }
