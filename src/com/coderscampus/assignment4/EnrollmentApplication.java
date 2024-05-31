@@ -48,6 +48,9 @@ public class EnrollmentApplication {
 			file.createCsv(array.compsciArray, file.compsciFile.toString());
 			file.createCsv(array.apmthArray, file.apmthFile.toString());
 			file.createCsv(array.statArray, file.statFile.toString());
+			array.orderArray(array.compsciArray);
+			array.orderArray(array.apmthArray);
+			array.orderArray(array.statArray);
 		}
 		
 		

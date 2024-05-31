@@ -1,8 +1,12 @@
 package com.coderscampus.assignment4;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class ArrayServiceImpl implements ArrayService{
@@ -13,11 +17,11 @@ public class ArrayServiceImpl implements ArrayService{
 	public String[] compsciArray = new String[35];
 	public String[] statArray = new String[34];
 	public String[] apmthArray = new String[34];
-
+	//=========================================================
 	@Override
 	public String[] fillStudentArray() {
 
-		String aLine = "";
+		//String aLine = "";
 		String[] stringArray = new String[100]; //101 records in csv file
 		//StudentRecord[] recordsArray = null;
 		
@@ -48,10 +52,10 @@ public class ArrayServiceImpl implements ArrayService{
 						
 		return null;
 	}
-
+	//=========================================================
 	@Override
 	public String readStudentArray(String[] someArray) {
-		//final method to call all 3  and display them.
+		//method to receive array and read them.
 		String[] array = someArray;
 		String concatString = "";
 		
@@ -62,7 +66,7 @@ public class ArrayServiceImpl implements ArrayService{
 		
 		return concatString;
 	}
-
+	//=========================================================
 	@Override
 	public void splitStudentArray() {
 		//34 COMPSCI //33 STAT  //33 APMTH
@@ -110,26 +114,37 @@ public class ArrayServiceImpl implements ArrayService{
 				}		
 			}		
 				i++;
-		}		
-		
-		
-		//order split array by class
-		//order array
-		//write array to 3 separate files
+		}						
 				
 	}	
-
+	//=========================================================
 	@Override
-	public String[] orderArray() {		
+	public void orderArray(String[] someArray) {		
+					
+		//StudentRecord theRecords = new StudentRecord(null, null, null, null);	
 		
-		
-		
-		StudentRecord theRecords = new StudentRecord(null, null, null, null);
-		
-		
+        //Sort the array based on the last 2 characters parsed as integers
+        Arrays.sort(someArray, Comparator.comparing(someString -> getIntegers(someString), Comparator.reverseOrder()));        
 
-		
-		return null;
+        //Print the sorted array
+        System.out.print("Sorted array (by last integers): ");
+        for (String aString : someArray) {
+            System.out.print("sorted array: " + aString.concat("\n"));
+        }						
 	}
+	//========================================================
+    public static int getIntegers(String aString) {
+        //get the last 2 characters from the string
+        String lastTwo = aString.substring(aString.length() - 2);
+
+        //Parse the last 2 characters as integers
+        try {
+            return Integer.parseInt(lastTwo);
+        } catch (NumberFormatException e) {
+        	System.out.println("Oops! A Number Fortmat Exception has occurred!");
+            //Handle invalid input
+            return 9001;//default value upon exception
+        }
+    }
 
 }
