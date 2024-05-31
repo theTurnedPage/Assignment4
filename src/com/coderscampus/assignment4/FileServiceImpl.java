@@ -19,7 +19,7 @@ public class FileServiceImpl implements FileService{
 		
 		try {
 			reader = new BufferedReader(new FileReader(FileServiceImpl.standardFile));
-			System.out.println("reading from file."); //feedback
+			//System.out.println("reading from file."); //feedback
 			
 			while((aLine = reader.readLine()) != null) {	
 												
@@ -30,7 +30,7 @@ public class FileServiceImpl implements FileService{
 			return stringArray;				
 		} finally {
 			if (reader != null) reader.close(); 	
-			System.out.println("file read complete.");//feedback
+			//System.out.println("file read complete.");//feedback
 		}
 
 	}

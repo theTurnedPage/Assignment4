@@ -25,25 +25,22 @@ public class ArrayServiceImpl implements ArrayService{
 		
 		try {
 				
-			System.out.println("filling stringArray \n");
+			//System.out.println("filling stringArray \n");
 			stringArray = file.readLine(FileService.standardFile); 
 			
 					//check contents of stringArray
 					while (i < stringArray.length){
 						
-						System.out.println("record at: " + i + ": " + stringArray[i] + "\n");
+						//System.out.println("record at: " + i + ": " + stringArray[i] + "\n");
 						i++;
 					}
 					
-					System.out.println("fill studentArray");
-					studentArray = stringArray;
-			
-			
+					//System.out.println("fill studentArray");
+					studentArray = stringArray;					
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("appStart read output: " + file.toString());			
 						
 		return null;
 	}
@@ -122,10 +119,10 @@ public class ArrayServiceImpl implements ArrayService{
         Arrays.sort(someArray, Comparator.comparing(someString -> getIntegers(someString), Comparator.reverseOrder()));        
 
         //Print the sorted array
-        System.out.print("Sorted array (by last integers): ");
-        for (String aString : someArray) {
-            System.out.print("sorted array: " + aString.concat("\n"));
-        }						
+        //System.out.print("Sorted array (by last integers): ");
+        //for (String aString : someArray) {
+            //System.out.print("sorted array: " + aString.concat("\n"));
+        //}						
 	}
 	//========================================================
     public static int getIntegers(String aString) {
@@ -136,7 +133,7 @@ public class ArrayServiceImpl implements ArrayService{
         try {
             return Integer.parseInt(lastTwo);
         } catch (NumberFormatException e) {
-        	System.out.println("Oops! A Number Fortmat Exception has occurred!");
+        	//System.out.println("getIntegers method: Oops! A Number Fortmat Exception has occurred!");
             //Handle invalid input
             return 9001;//default value upon exception
         }
