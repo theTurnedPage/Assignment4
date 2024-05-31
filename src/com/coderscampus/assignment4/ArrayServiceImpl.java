@@ -14,7 +14,7 @@ public class ArrayServiceImpl implements ArrayService{
 	public String[] apmthArray = new String[34];
 	//=========================================================
 	@Override
-	public String[] fillStudentArray() {
+	public void fillStudentArray() {
 
 		//String aLine = "";
 		String[] stringArray = new String[100]; //101 records in csv file
@@ -40,9 +40,7 @@ public class ArrayServiceImpl implements ArrayService{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-						
-		return null;
+		}							
 	}
 	//=========================================================
 	@Override
